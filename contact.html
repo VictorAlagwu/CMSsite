@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us | Victor</title>\
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> 
+<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
+<link rel="icon" type="image/png" href="img/favicon.ico">
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/animated.css">
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--Navigation bar-->
+	<nav class="navbar-inverse navbar-fixed-top ">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+				<span class="sr-only">Toggle Navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">Victor's Blog</a>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li ><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+					<li class="dropdown">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-duplicate"></span> Pages<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+                      		<li><a href="#">Page 1</a></li>
+                      		<li><a href="#">Page 2</a></li>
+                     		 <li><a href="#">Page 3</a></li>
+                     		 <li><a href="#">Page 4</a></li>
+                      		<li role="separator" class="divider"></li>
+                      		<li><a href="#">Page 5</a></li>
+                  			</ul></li>
+                  		<li class="dropdown">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> Categories <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+                      		<li><a href="#">Page 1</a></li>
+                      		<li><a href="#">Page 2</a></li>
+                     		 <li><a href="#">Page 3</a></li>
+                     		 <li><a href="#">Page 4</a></li>
+                      		<li role="separator" class="divider"></li>
+                      		<li><a href="#">Page 5</a></li>
+                  			</ul></li>
+					
+					<li><a href="contact.html"><span class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+<!--End of Navigattion Bar-->
+<hr>
+<hr>
+<section>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<div class="row">
+			<h4 id="contactform">Contact Form</h4>
+				<form class="form-size" role="form">
+				<label for="name">Name:*</label>
+					<input type="text" id="name" name="name" placeholder="Enter your name" class="form-control">
+					<hr>
+				<label for="email">Email:*</label>
+					<input type="enail" id="email" name="email" placeholder="Enter your email" class="form-control">
+					<hr>
+				 <label for="comment">Comment:*</label>
+  					<textarea class="form-control" rows="9" id="comment">
+  					</textarea>
+					<hr>
+					<button class="btn btn-default" type="submit" name="submit" id="submit">Submit</button>
+				</form>
+			</div>
+		</div>	
+
+			
+		<div class="col-xs-4">
+			<!--Search button Section-->
+			<div class="widgets">
+				
+				<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search for..." name="search"><span class="input-group-btn">
+					<button class="btn btn-default" type="button">Search</button>
+				</span>
+				</div><!--eND INPUT GROUP-->
+			</div>
+			<!--End of search button section-->
+				
+			<!--Start of Popular Post Section-->
+			<div class="widgets">
+				<div class="popular">
+					<h4>Popular Posts</h4>
+					<hr>
+					<!--Start 1st-->
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="img/post1.jpg" alt="Image">
+						</div>
+						<div class="col-xs-8 details">
+							<h4>This is a Post </h4>
+							<p><i class="fa fa-clock-o"> </i>11th, September 2016</p>
+						</div>
+					</div>
+					<hr>
+					<!--End 1st-->
+
+					<!--Start 2ND -->
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="img/post1.jpg" alt="Image">
+						</div>
+						<div class="col-xs-8 details">
+							<h4>This is a Post </h4>
+							<p><i class="fa fa-clock-o"> </i>11th, September 2016</p>
+						</div>
+					</div>
+					<hr>
+					<!--End 2ND -->
+
+					<!--Start 3RD -->
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="img/post1.jpg" alt="Image">
+						</div>
+						<div class="col-xs-8 details">
+							<h4>This is the heading </h4>
+							<p><i class="fa fa-clock-o"> </i>11th, September 2016</p>
+						</div>
+					</div>
+					<!--End 3RD -->
+				</div>
+			</div>
+				<!--Endin of second widget"Ending of popular class"-->
+
+
+				<!--Beginniong recent post widget-->
+		<div class="widgets">
+					<div class="popular">
+					<h4>Recent Posts</h4>
+					
+					<!--Creating row for the post and it image-->
+						<hr>
+						<div class="row">
+							<div class="col-xs-4">
+								<img src="img/post2.jpg" alt="Image">
+							</div>
+							<div class="col-xs-8 details">
+								<h4>This is the heading </h4>
+								<p><i class="fa fa-clock-o"> </i>11th, September 2016</p>
+							</div>
+							</div>
+
+
+						<hr>
+						<div class="row">
+							<div class="col-xs-4">
+								<img src="img/post2.jpg" alt="Image">
+							</div>
+							<div class="col-xs-8 details">
+								<h4>This is the heading </h4>
+								<p><i class="fa fa-clock-o"> </i>11th, September 2016</p>
+							</div>
+							</div>
+
+						<hr>
+						<div class="row">
+							<div class="col-xs-4">
+								<img src="img/post2.jpg" alt="Image">
+							</div>
+							<div class="col-xs-8 details">
+								<h4>This is the heading </h4>
+								<p><i class="fa fa-clock-o"> </i>11th, September 2016</p>
+							</div>
+							</div>
+					</div>
+				</div>
+				<!--ending recent widget-->
+
+				<!--Beginning of categories-->
+				<div class="widget">
+					<div class="popular">
+					<h4>Categories</h4>
+					<div class="row">
+					<!--First Un-order list-->
+						<div class="col-xs-6">
+							<ul>
+								<li>First Category</li>
+								<li> Sec Category</li>
+								<li>Third Category</li>
+								<li>Fourth Category</li>
+								<li>Fifth Category</li>
+							</ul>
+						</div>
+						<!--Ending of first unorder list-->
+
+						<!--Second Un-order list-->
+						<div class="col-xs-6">
+							<ul>
+								<li>First Category</li>
+								<li>Sec Category</li>
+								<li>Third Category</li>
+								<li>Fourth Category</li>
+								<li>Fifth Category</li>
+							</ul>
+						</div>
+						<!--Ending of second unorder list-->
+						</div>
+					</div>
+				</div>
+				<!--ending of categories-->
+				<!--sOCIAL iCOn sPACE-->
+				<div class="widget">
+					<div class="categories">
+						<h4>
+						Tech Sites
+						</h4>
+						<br/>
+						<div class="row">
+							<div class="col-xs-4">
+							
+								<a href="#"><img src="img/hp.jpg" id="icon"></a>
+							</div>
+							<div class="col-xs-4">
+							
+								<a href="#"><img src="img/opera.jpg" id="icon"></a></a></a></a>
+							</div>
+							<div class="col-xs-4">
+							
+								<a href="#"><img src="img/apple.jpg" id="icon"></a></a></a>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-xs-4">
+							
+								<a href="#"><img src="img/window.jpg" id="icon"></a></a>
+							</div>
+							<div class="col-xs-4">
+							
+								<a href="#"><a href="#"><img src="img/firefox.jpg" id="icon"></a>
+							</div>
+							<div class="col-xs-4">
+							
+								<a href="#"><img src="img/intel.jpg" id="icon"></a>
+							</div>
+						</div>
+						
+					</div>					
+				</div>
+				<!--Ending of social icon-->
+
+
+		<!--SS-->
+	</div>
+</div>
+</section>
+<footer class="footer">	
+	<div class="container">
+		Copyright &copy; by <a href="https://facebook.com/victor.alagwu">Victor Alagwu.</a> All Rights Reserved 2016.
+	</div>
+</footer>
+
+	<script src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
