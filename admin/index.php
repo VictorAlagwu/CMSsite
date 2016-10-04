@@ -1,5 +1,6 @@
 <?php require_once 'inc/top.php';
 ?>
+<title>Admin Page</title>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
@@ -154,47 +155,6 @@
 							<td>Victor</td>
 							<td>Admin</td>
 						</tr>
-
-						<tr>
-							<td>1</td>
-							<td>19 Sep 2016</td>
-							<td>Victor Alagwu</td>
-							<td>Victor</td>
-							<td>Admin</td>
-						</tr>
-
-						<tr>
-							<td>1</td>
-							<td>19 Sep 2016</td>
-							<td>Victor Alagwu</td>
-							<td>Victor</td>
-							<td>Admin</td>
-						</tr>
-
-						<tr>
-							<td>1</td>
-							<td>19 Sep 2016</td>
-							<td>Victor Alagwu</td>
-							<td>Victor</td>
-							<td>Admin</td>
-						</tr>
-
-						<tr>
-							<td>1</td>
-							<td>19 Sep 2016</td>
-							<td>Victor Alagwu</td>
-							<td>Victor</td>
-							<td>Admin</td>
-						</tr>
-
-						<tr>
-							<td>1</td>
-							<td>19 Sep 2016</td>
-							<td>Victor Alagwu</td>
-							<td>Victor</td>
-							<td>Admin</td>
-						</tr>
-
 						<tr>
 							<td>1</td>
 							<td>19 Sep 2016</td>
@@ -220,30 +180,6 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>25 Sep 2016</td>
-								<td>Introduction to Cyper Hacking</td>
-								<td>Tutorial</td>
-								<td><i class="fa fa-eye"></i>21</td>
-							</tr>
-
-							<tr>
-								<td>1</td>
-								<td>25 Sep 2016</td>
-								<td>Introduction to Cyper Hacking</td>
-								<td>Tutorial</td>
-								<td><i class="fa fa-eye"></i>21</td>
-							</tr>
-
-							<tr>
-								<td>1</td>
-								<td>25 Sep 2016</td>
-								<td>Introduction to Cyper Hacking</td>
-								<td>Tutorial</td>
-								<td><i class="fa fa-eye"></i>21</td>
-							</tr>
-
 							<tr>
 								<td>1</td>
 								<td>25 Sep 2016</td>

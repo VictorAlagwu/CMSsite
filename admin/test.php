@@ -1,14 +1,14 @@
 <?php require_once 'inc/top.php';
 ?>
-<title>Categories | Victor</title>
 <link rel="stylesheet" type="text/css" href="css/categories.css">
 </head>
 <body>
 <div id="wrapper">
-	<?php require_once 'inc/navbar.php';
+<?php require_once 'inc/navbar.php';
 include_once 'crud_category.php';
 error_reporting(0);
 ?>
+
 	<div class="container-fluid body-section">
 		<div class="row">
 
@@ -16,7 +16,7 @@ error_reporting(0);
 			<div class="col-xs-3">
 				<div class="list-group">
 					<a href="#" class="list-group-item active">Dashboard</a>
-					<a href="posts.php" class="list-group-item">
+					<a href="#" class="list-group-item">
 					<span class="badge">14</span><i class="fa fa-file-text"></i>All Posts</a>
 					<a href="#" class="list-group-item"><span class="badge">9</span><i class="fa fa-comment"></i>Comments</a>
 					<a href="#" class="list-group-item"><span class="badge">4</span><i class="fa fa-folder-open"></i>Categories</a>
@@ -43,19 +43,19 @@ error_reporting(0);
 					<form role="form" method="POST" action="">
 						<label for="category">Category Name:</label>
 						<input type="text" name="category" placeholder="Category Name" class="form-control" value="<?php
-if (isset($_GET['edit_id'])) {
-	echo $getROW['category'];
-}?>" />
+						if (isset($_GET['edit_id'])){
+							echo $getROW['category'];
+						} ?>" />
 						<?php if (isset($_GET['edit_id'])) {
 
-	?>
+						?>
 						<button type="submit" name="update" class="btn btn-info">Update Category</button>
 
-		<?php } else {
+<?php }else {
 	?>
 							<button type="submit" name="add" class="btn btn-info">Add Category</button>
-					<?php	}
-?>
+					<?php		}
+					?>
 					</form>
 
 					</div>
@@ -72,16 +72,16 @@ if (isset($_GET['edit_id'])) {
 							</thead>
 							<tbody>
 							<?php
-$run_query = mysqli_query($con, "SELECT * FROM categories");
+$run_query =mysqli_query($con ,"SELECT * FROM categories");
 while ($row = mysqli_fetch_array($run_query)) {
 
-	?>
+?>
 
 								<tr>
 									<td><?php echo $row['id']; ?></td>
-									<td><?php echo $row['category']; ?></td>
+									<td><?php echo $row['category'];?></td>
 									<td><a href="?edit_id=<?php echo $row['id']; ?>"><i class="fa fa-pencil"></i></a></td>
-									<td><a href="?del_id=<?php echo $row['id']; ?>"><i class="fa fa-times" style="color:red;"></i></a></td>
+									<td><a href="?del_id=<?php echo $row['id'];?>"><i class="fa fa-times"></i></a></td>
 								</tr>
 								<?php
 
@@ -96,11 +96,11 @@ while ($row = mysqli_fetch_array($run_query)) {
 
 			</div>
 		</div>
-		</div>
-		<?php require_once 'inc/footer.php';
+	</div>
+<?php require_once 'inc/footer.php';
 ?>
-		</div>
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		</body>
-		</html>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

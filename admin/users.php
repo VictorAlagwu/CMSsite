@@ -1,5 +1,6 @@
 <?php require_once 'inc/top.php';
 ?>
+<title>Users |Victor</title>
 <link rel="stylesheet" type="text/css" href="css/users.css">
 
 
