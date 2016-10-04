@@ -1,4 +1,6 @@
-<?php require_once 'inc/top.php';?>
+<?php
+
+require_once 'inc/top.php';?>
 </head>
 <body>
 <?php require_once 'inc/navbar.php';?>

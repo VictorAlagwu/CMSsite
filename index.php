@@ -5,6 +5,32 @@
 
 		<!--Space for navigation-->
 	<?php require_once 'inc/navbar.php';
+$number_of_posts = 3;
+
+if ($_GET['page']) {
+	$page_id = $_GET['PAGE'];
+
+} else {
+	$page_id = 1;
+}
+
+if (isset($_GET['cat'])) {
+	$cat_id = $_GET['cat'];
+	$cat_query = 'SELECT * FROM categories WHERE id =$cat_id';
+	$cat_run_query = mysqli_query($con, $cat_query);
+	$cat_num_query = mysqli_num_rows($cat_run_query);
+	$cat_name = $cat_num_query['category'];
+}
+
+$all_posts_query = "SELECT * FROM posts WHERE status='publish'";
+if (isset($cat_name)) {
+	$all_posts_query .= " and categories ='$cat_name' ";
+}
+$all_posts_run = mysqli_query($con, $all_posts_query);
+$all_posts = mysqli_num_rows($all_posts_run);
+$total_pages = ceil($all_posts / $number_of_posts);
+$posts_start_from = ($page_id - 1) * $number_of_posts;
+
 ?>
 	<!--End navigation
 
@@ -55,13 +81,18 @@
 
 			<!--Main Posts Area-->
 		<?php
-$query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY id DESC";
+$query = "SELECT * FROM posts WHERE status = 'publish'";
+if (isset($cat_name)) {
+	$query .= " and categpry = '$cat_name'";
+}
+$query .= "ORDER BY id DESC LIMIT $posts_start_from,$number_of_posts";
+
 $run_query = mysqli_query($con, $query);
 $num_post = mysqli_num_rows($run_query);
 if ($num_post > 0) {
 	while ($row = mysqli_fetch_array($run_query)) {
 		$id = $row['id'];
-		$date = getdate($row['date']);
+		$date = getdate($row['date_data']);
 		$day = $date['mday'];
 		$month = $date['month'];
 		$year = $date['year'];
@@ -106,7 +137,7 @@ if ($num_post > 0) {
 	<!--Beginning of post image-->
 		<div class="row">
 			<div class="col-xs-12">
-				<a href="post.php?post_id=<?php echo $id; ?>"><img id="post-image" src="img/slider2.jpg" alt="iMage"></a>
+				<a href="post.php?post_id=<?php echo $id; ?>"><img id="post-image" src="img/<?php echo $image; ?>" alt="iMage"></a>
 			</div>
 		</div>
 		<hr>
@@ -139,14 +170,14 @@ if ($num_post > 0) {
 
 	<nav class="pager">
 		<ul class="pagination">
-  			<li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-  			<li class="active"><a href="#">1</a></li>
-  			<li><a href="#">2</a></li>
-  			<li><a href="#">3</a></li>
-  			<li><a href="#">4</a></li>
-  			<li><a href="#">5</a></li>
-  			<li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+		<?php
+for ($i = 1; $i <= $total_pages; $i++) {
+	echo "<li class=\"($page_id==$i)\"><a href='index.php?page=" . $i . "'>$i</a></li>";
+}
+
+?>
 		</ul>
+
 	</nav>
 
 
