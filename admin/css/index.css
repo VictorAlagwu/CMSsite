@@ -1,0 +1,71 @@
+html,body{
+	height: 100%;
+}
+body{
+	padding-top: 60px;
+}
+
+.navbar-brand{
+	font-family:"Lucida Handwriting";
+	color:white;
+    font-size: 30px;
+    margin-top: 5px;
+}
+.huge{
+
+	font-size: 40px;
+}
+.tag-boxes .panel-primary{
+	border:1px solid #2FA4E7; 
+}
+.pull-left{
+	margin-left: 10px;
+}
+.panel-red{
+	background-color: #d9534f;
+	
+}
+.panel-red a{
+	color: #d9534f;
+}
+.panel-red a:hover{
+	color:#3d8b3d;
+}
+.panel-yellow{
+	background-color: #f0ad4e;
+	
+}
+.panel-yellow a{
+	color: #f0ad4e;
+}
+.panel-yellow a:hover{
+	color:#b52b27;
+}
+.panel-green{
+	background-color: #5cb85c;
+	
+}
+.panel-green a{
+	color:  #5cb85c;
+}
+.panel-green a:hover{
+	color:#df8a13;
+}
+.table thead{
+	font-family: "Bernard MT Condensed";
+}
+#wrapper{
+	min-height: 100%;
+	position: relative;
+}
+.body-section{
+	padding-bottom: 100px;
+}
+footer{
+	text-align: center;
+	background-color: grey;
+	height: 50px;
+	line-height: 50px;
+	color: white;
+	letter-spacing: 1px;
+}
