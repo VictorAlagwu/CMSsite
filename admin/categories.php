@@ -1,106 +1,112 @@
-<?php require_once 'inc/top.php';
+<?php include 'includes/admin_header.php';?>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+       <?php include 'includes/admin_navbar.php';?>
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Welcome to Categories Page
+                            <small>Category Name</small>
+                        </h1>
+                    </div>
+                </div>
+<?php
+insert_category();
 ?>
-<title>Categories | Victor</title>
-<link rel="stylesheet" type="text/css" href="css/categories.css">
-</head>
-<body>
-<div id="wrapper">
-	<?php require_once 'inc/navbar.php';
-include_once 'crud_category.php';
-error_reporting(0);
+                <div class="row">
+                    <div class="col-xs-6">
+
+                            <form method="POST" action="" role="form">
+                                <div class="form-group">
+                                <label for="cat_title">Add Category</label>
+                                <input type="text" name="cat_title"  class="form-control">
+                                </div>
+                                <div class="form-group">
+                                <button type="submit" name="submit" class="btn btn-primary">Add Category</button>
+                                </div>
+                            </form>
+
+
+<?php
+update_category();
 ?>
-	<div class="container-fluid body-section">
-		<div class="row">
 
-		<!--First Section-->
-			<div class="col-xs-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item active">Dashboard</a>
-					<a href="posts.php" class="list-group-item">
-					<span class="badge">14</span><i class="fa fa-file-text"></i>All Posts</a>
-					<a href="#" class="list-group-item"><span class="badge">9</span><i class="fa fa-comment"></i>Comments</a>
-					<a href="#" class="list-group-item"><span class="badge">4</span><i class="fa fa-folder-open"></i>Categories</a>
-					<a href="users.php" class="list-group-item"><span class="badge">10</span><i class="fa fa-users"></i>Users</a>
-				</div>
-			</div>
-		<!--Ending Section-->
-		<!--bEGINNING OF sECOND sECTION-->
-			<div class="col-xs-9">
-				<!--BEGINNING OF hEADING-->
-				<h1><a href="#"><i class="fa fa-folder-open" aria-hidden="true">Categories</i></a><small>Different Categories</small></h1>
-				<!--END HEADING-->
-				<div class="row header">
-					<ol class="breadcrumb">
-					<li class="active"><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i>  Dashboard</a></li>
-					<li class="active"><i class="fa fa-folder-open"></i>Categories</li>
-					</ol>
-				</div>
 
-				<div class="row">
 
-					<div class="col-xs-6">
 
-					<form role="form" method="POST" action="">
-						<label for="category">Category Name:</label>
-						<input type="text" name="category" placeholder="Category Name" class="form-control" value="<?php
-if (isset($_GET['edit_id'])) {
-	echo $getROW['category'];
-}?>" />
-						<?php if (isset($_GET['edit_id'])) {
 
-	?>
-						<button type="submit" name="update" class="btn btn-info">Update Category</button>
+                 </div>
+                    <div class="col-xs-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Categories Title</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
 
-		<?php } else {
-	?>
-							<button type="submit" name="add" class="btn btn-info">Add Category</button>
-					<?php	}
-?>
-					</form>
-
-					</div>
-					<div class="col-xs-6">
-						<!--SECTION FOR TABLE-->
-						<table class="table table-hover table-bordered table-striped">
-							<thead>
-								<tr>
-									<td>SR #</td>
-									<td>Category</td>
-									<td>Edit</td>
-									<td>Delete</td>
-								</tr>
-							</thead>
-							<tbody>
-							<?php
-$run_query = mysqli_query($con, "SELECT * FROM categories");
+                            <tbody>
+                            <?php
+$query = "SELECT * FROM categories";
+$run_query = mysqli_query($con, $query);
 while ($row = mysqli_fetch_array($run_query)) {
 
-	?>
+	$cat_id = $row['cat_id'];
+	$cat_title = $row['cat_title'];
+	# code...
 
-								<tr>
-									<td><?php echo $row['id']; ?></td>
-									<td><?php echo $row['category']; ?></td>
-									<td><a href="?edit_id=<?php echo $row['id']; ?>"><i class="fa fa-pencil"></i></a></td>
-									<td><a href="?del_id=<?php echo $row['id']; ?>"><i class="fa fa-times" style="color:red;"></i></a></td>
-								</tr>
-								<?php
+	?><tr>
 
+                                <td><?php echo $cat_id; ?></td>
+                                <td><?php echo $cat_title; ?></td>
+                                <td><a href="categories.php?edit=<?php echo $cat_id; ?>"><span class="glyphicon glyphicon-edit" style="color: #265a88;"></span></a></td>
+                                <td><a href="categories.php?del=<?php echo $cat_id; ?>"><i class="fa fa-times" style="color: red;"></i></a></td>
+                            </tr>
+                                 <?php
 }
+//----DELETE QUERY-----
+delete_category();
 ?>
-							</tbody>
-						</table>
-					</div>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
 
-				</div>
+                <!-- /.row -->
 
 
-			</div>
-		</div>
-		</div>
-		<?php require_once 'inc/footer.php';
-?>
-		</div>
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		</body>
-		</html>
+
+
+
+
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+<!--
+   <?php 'includes/admin_footer.php';?> -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
