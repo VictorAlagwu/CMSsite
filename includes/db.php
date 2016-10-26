@@ -1,3 +1,6 @@
+<!-- @author 'Victor Alagwu';
+//   @project 'Simple Content Management System';
+//   @date    '0ctober 2016'; -->
 <?php
 $db['db_host'] = 'localhost';
 $db['db_username'] = 'root';

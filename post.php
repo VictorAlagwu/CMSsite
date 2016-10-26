@@ -1,7 +1,28 @@
+<!-- @author 'Victor Alagwu';
+//   @project 'Simple Content Management System';
+//   @date    '0ctober 2016'; -->
 <?php include 'includes/header.php';?>
     <!-- Navigation -->
 <?php include 'includes/navbar.php';?>
+<?php
+if (isset($_GET['post'])) {
+	$post = $_GET['post'];
+}
+$query = "SELECT * FROM posts WHERE post_id=$post";
+$run_query = mysqli_query($con, $query);
+while ($row = mysqli_fetch_assoc($run_query)) {
+	$post_title = $row['post_title'];
+	$post_id = $row['post_id'];
+	$post_category_id = $row['post_category_id'];
+	$post_author = $row['post_author'];
+	$post_date = $row['post_date'];
+	$post_image = $row['post_image'];
+	$post_content = $row['post_content'];
+	$post_tags = $row['post_tags'];
+	$post_comment_count = $row['post_comment_count'];
+	$post_status = $row['post_status'];
 
+	?>
     <!-- Page Content -->
     <div class="container">
 
@@ -11,78 +32,109 @@
             <div class="col-lg-8">
 
                 <!--First Post -->
-	       		<h1 class="page-header">Heading<small>Secondary Text</small></h1>
-	        	<p><h2><a href="#">Post Title</a></h2></p>
-	        	<p><h3>by <a href="#">Author</a></h3></p>
-	        	<p><span class="glyphicon glyphicon-time"></span>Posted on Time</p>
-	        	<hr>
-	        	<img class="img-responsive img-rounded" src="img/post_img.jpg" alt="900 * 300">
-	        	<hr>
-	        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	        		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	        	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	        	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	        	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	        	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	        	<a href="#"><button type="button" class="btn btn-primary">Read More<span class="glyphicon glyphicon-chevron-right"></span></button></a>
-	        	<hr>
+                <hr>
+	       		<p><h2><a href="post.php?post=<?php echo $post_id; ?>"><?php echo $post_title; ?></a></h2></p>
+                <p><h3>by <a href="#"><?php echo $post_author; ?></a></h3></p>
+                <p><span class="glyphicon glyphicon-time"></span>Posted on <?php echo $post_date; ?></p>
+                <hr>
+                <img class="img-responsive img-rounded" src="img/<?php echo $post_image; ?>" alt="900 * 300">
+                <hr>
+                <p><?php echo $post_content; ?></p>
+
+                <hr>
+                <?php }?>
 	        	<!-- First Post -->
                 <!-- Blog Comments -->
 
-                <!-- Comments Form -->
+
+            <!-- Comments Form -->
+<?php
+if (isset($_POST['create_comment'])) {
+	$comment_author = $_POST['comment_author'];
+
+	$comment_date = date('d-m-y');
+
+	$comment_content = $_POST['comment_content'];
+	$comment_email = $_POST['comment_email'];
+	$post = $_GET['post'];
+
+	//---ASSIGNING VARIABLES-----
+
+//<<<<<<<<<<<<<<<<<<<<----START QUERY---<<<<<<<<<<<<<<<<<<<<<<<
+	//
+	//-------QUERY TO INSERT DATA INTO POST TABLE---------
+	$post_query = "INSERT INTO comments(comment_post_id,";
+	$post_query .= "comment_author,comment_email,";
+	$post_query .= "comment_content,";
+	$post_query .= "comment_status,comment_date)";
+	$post_query .= " VALUES ('{$post}','{$comment_author}','{$comment_email}','{$comment_content}','approved',now() )";
+	$create_post_query = mysqli_query($con, $post_query);
+	if (!$create_post_query) {
+		die("Error in calling query" . mysqli_error($con));
+	}
+
+}
+
+?>
                 <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form">
+                     <h4>Leave a Comment:</h4>
+                    <form role="form" method="POST" action="">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <label for="comment_author">Author</label>
+                            <input type="text" class="form-control" name="comment_author">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <label for="comment_email">Email</label>
+                            <input type="email" class="form-control" name="comment_email" >
+                        </div>
+                        <div class="form-group">
+                        <label for="comment_email">Your Comment</label>
+                            <textarea type="text" class="form-control" rows="3" name="comment_content"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit"  name="create_comment">Submit</button>
                     </form>
-                </div>
+</div>
 
                 <hr>
-
                 <!-- Posted Comments -->
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="img/comment.jpg" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
-                        </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
+                <!-- Comment-->
+                <?php
+$comment_query = "SELECT * FROM comments WHERE comment_post_id= {$post} AND comment_status='approved'";
+$run_comment_query = mysqli_query($con, $comment_query);
+while ($row = mysqli_fetch_array($run_comment_query)) {
+	$comment_post_id = $row['comment_post_id'];
+	$comment_date = $row['comment_date'];
+	$comment_content = $row['comment_content'];
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="img/comment.jpg" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
-                        </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        <!-- Nested Comment -->
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="img/comment.jpg" alt="">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Nested Start Bootstrap
-                                    <small>August 25, 2014 at 9:30 PM</small>
-                                </h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-                        <!-- End Nested Comment -->
-                    </div>
-                </div>
+	echo " <div class='media'>";
+	echo "<a class='pull-left' href='#'>";
+	echo "<img class='media-object' src='img/comment.jpg' alt=''>";
+	echo "</a>";
+	echo "<div class='media-body'>";
+	echo "<h4 class='media-heading'>{$comment_post_id}
+                            <small>{$comment_date}</small>
+                        </h4>";
+	echo "{$comment_content}";
+	echo "</div>";
+	echo "</div>";
+
+}
+
+?>
+
+
+
+
+
+
+
+
+
+
+                <!-- Comment-->
+
+
 
             </div>
 

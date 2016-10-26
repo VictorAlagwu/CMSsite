@@ -1,4 +1,9 @@
-<?php include 'includes/admin_header.php';?>
+<?php include 'includes/admin_header.php';
+// @author 'Victor Alagwu';
+// @project 'Simple Content Management System';
+// @date    '0ctober 2016';
+
+?>
     <div id="wrapper">
 
         <!-- Navigation -->

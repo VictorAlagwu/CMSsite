@@ -12,50 +12,41 @@
 	        <div class="col-md-8">
             <h1 class="page-header">Heading<small>Secondary Text</small></h1>
             <?php
-if (isset($_POST['submit'])) {
-	$search = $_POST["search"];
+if (isset($_GET['cat_id'])) {
+	$category = $_GET['cat_id'];
+}
+$query = "SELECT * FROM posts WHERE post_category_id=$category";
+$run_query = mysqli_query($con, $query);
+$count = mysqli_num_rows($run_query);
+if ($count == 0) {
+	echo "<h1>No Post in this Category</h1>";
+} else {
+	while ($row = mysqli_fetch_assoc($run_query)) {
+		$post_title = $row['post_title'];
+		$post_id = $row['post_id'];
+		$post_category_id = $row['post_category_id'];
+		$post_author = $row['post_author'];
+		$post_date = $row['post_date'];
+		$post_image = $row['post_image'];
+		$post_content = $row['post_content'];
+		$post_tags = $row['post_tags'];
+		$post_comment_count = $row['post_comment_count'];
+		$post_status = $row['post_status'];
 
-	$query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' ";
-	$search_query = mysqli_query($con, $query);
-	if (!$search_query) {
-		die("Query Fail" . mysqli_error($con));
-	}
-	$count = mysqli_num_rows($search_query);
-	if ($count == 0) {
-		echo "<h1>No result</h1>";
-	} else {
-		while ($row = mysqli_fetch_assoc($search_query)) {
-			$post_title = $row['post_title'];
-			$post_id = $row['post_id'];
-			$post_category_id = $row['post_category_id'];
-			$post_author = $row['post_author'];
-			$post_date = $row['post_date'];
-			$post_image = $row['post_image'];
-			$post_content = $row['post_content'];
-			$post_tags = $row['post_tags'];
-			$post_comment_count = $row['post_comment_count'];
-			$post_status = $row['post_status'];
-			?>
-		<!-- Post Area-->
+		?>
+	        	<!-- Post Area-->
 
-	        	<p><h2><a href="#"><?php echo $post_title; ?></a></h2></p>
+	        	<p><h2><a href="post.php?post=<?php echo $post_id; ?>"><?php echo $post_title; ?></a></h2></p>
 	        	<p><h3>by <a href="#"><?php echo $post_author; ?></a></h3></p>
 	        	<p><span class="glyphicon glyphicon-time"></span>Posted on <?php echo $post_date; ?></p>
 	        	<hr>
 	        	<img class="img-responsive img-rounded" src="img/<?php echo $post_image; ?>" alt="900 * 300">
 	        	<hr>
 	        	<p><?php echo substr($post_content, 0, 300) . '.........'; ?></p>
-	        		<a href="post.php?post=<?php echo $post_id; ?>"><button type="button" class="btn btn-primary">Read More<span class="glyphicon glyphicon-chevron-right"></span></button></a>
+	        	<a href="post.php?post=<?php echo $post_id; ?>"><button type="button" class="btn btn-primary">Read More<span class="glyphicon glyphicon-chevron-right"></span></button></a>
 	        	<hr>
 	        	<!-- Post Area -->
-	        	<?php }
-	}
-}
-?>
-
-
-
-
+	        	<?php }}?>
 
 	        	<hr>
 	        	<ul class="pager">

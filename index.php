@@ -1,4 +1,6 @@
-
+<!-- @author 'Victor Alagwu';
+//   @project 'Simple Content Management System';
+//   @date    '0ctober 2016'; -->
 <?php include 'includes/header.php';?>
         <!-- Navigation Bar -->
    <?php include 'includes/navbar.php';?>
@@ -27,14 +29,14 @@ while ($row = mysqli_fetch_assoc($run_query)) {
 	?>
 	        	<!-- Post Area-->
 
-	        	<p><h2><a href="#"><?php echo $post_title; ?></a></h2></p>
+	        	<p><h2><a href="post.php?post=<?php echo $post_id; ?>"><?php echo $post_title; ?></a></h2></p>
 	        	<p><h3>by <a href="#"><?php echo $post_author; ?></a></h3></p>
 	        	<p><span class="glyphicon glyphicon-time"></span>Posted on <?php echo $post_date; ?></p>
 	        	<hr>
 	        	<img class="img-responsive img-rounded" src="img/<?php echo $post_image; ?>" alt="900 * 300">
 	        	<hr>
-	        	<p><?php echo $post_content; ?></p>
-	        	<a href="#"><button type="button" class="btn btn-primary">Read More<span class="glyphicon glyphicon-chevron-right"></span></button></a>
+	        	<p><?php echo substr($post_content, 0, 300) . '.........'; ?></p>
+	        	<a href="post.php?post=<?php echo $post_id; ?>"><button type="button" class="btn btn-primary">Read More<span class="glyphicon glyphicon-chevron-right"></span></button></a>
 	        	<hr>
 	        	<!-- Post Area -->
 	        	<?php }?>

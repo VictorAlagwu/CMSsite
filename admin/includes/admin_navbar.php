@@ -1,3 +1,6 @@
+ <!-- @author 'Victor Alagwu';
+//   @project 'Simple Content Management System';
+//   @date    '0ctober 2016'; -->
  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -13,7 +16,7 @@
             <ul class="nav navbar-right top-nav">
                 <li><a href="../index.php">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Victor Alagwu <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -43,7 +46,7 @@
                                 <a href="./posts.php">View All Posts</a>
                             </li>
                             <li>
-                                <a href="#">Add Posts</a>
+                                <a href="posts.php?source=add_post">Add Posts</a>
                             </li>
                         </ul>
                     </li>
@@ -66,7 +69,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
+                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
                     </li>
                 </ul>
             </div>

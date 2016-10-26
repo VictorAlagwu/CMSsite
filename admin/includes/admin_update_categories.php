@@ -1,3 +1,6 @@
+<!-- @author 'Victor Alagwu';
+//   @project 'Simple Content Management System';
+//   @date    '0ctober 2016'; -->
   <form method="POST" action="" role="form">
                                 <div class="form-group">
                                 <label for="cat_title">Edit Category</label>

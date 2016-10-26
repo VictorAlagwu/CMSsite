@@ -1,3 +1,7 @@
+<!-- @author 'Victor Alagwu';
+//   @project 'Simple Content Management System';
+//   @date    '0ctober 2016'; -->
+
      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"">
 			<div class="container">
 

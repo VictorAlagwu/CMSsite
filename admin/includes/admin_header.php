@@ -1,5 +1,8 @@
+<!-- @author 'Victor Alagwu';
+//   @project 'Simple Content Management System';
+//   @date    '0ctober 2016'; -->
 <?php include '../includes/db.php';?>
-<?php include 'function.php';?>
+<?php include 'crud_cat_function.php';?>
 <?php ob_start();?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +16,7 @@
     <meta name="author" content="">
 
     <title>Dashboard - Victor</title>
-
+    <link rel="icon" type="image/png" href="../img/vimeo.png">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 

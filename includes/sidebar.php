@@ -1,8 +1,10 @@
-
+<!-- @author 'Victor Alagwu';
+//   @project 'Simple Content Management System';
+//   @date    '0ctober 2016'; -->
  <!-- Blog Search Well -->
                 <div class="well">
 
-                    <h4>Blog Search</h4>
+                    <h4>Search</h4>
                     <form method="POST" action="search.php">
                     <div class="input-group">
                         <input name="search" type="text" class="form-control">
@@ -16,21 +18,22 @@
                     <!-- /.input-group -->
                 </div>
 
-                <!-- Blog Categories Well -->
+                <!-- Categories Well -->
                 <div class="well">
                 <?php
 $query = "SELECT * FROM categories";
 $run_query_siddebar = mysqli_query(
 	$con, $query);
 ?>
-                    <h4>Blog Categories</h4>
+                    <h4>Categories</h4>
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="list-unstyled">
                             <?php
 while ($row = mysqli_fetch_assoc($run_query_siddebar)) {
+	$cat_id = $row['cat_id'];
 	$cat_title = $row['cat_title'];
-	echo "<li><a href='#'>{$cat_title}</a>
+	echo "<li><a href='category.php?cat_id={$cat_id}'>{$cat_title}</a>
                                 </li>";
 }
 ?>
