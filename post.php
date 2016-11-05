@@ -68,51 +68,57 @@ if (isset($_POST['create_comment'])) {
 	$post_query .= "comment_content,";
 	$post_query .= "comment_status,comment_date)";
 	$post_query .= " VALUES ('{$post}','{$comment_author}','{$comment_email}','{$comment_content}','approved',now() )";
-	$create_post_query = mysqli_query($con, $post_query);
-	if (!$create_post_query) {
+	$create_comment_query = mysqli_query($con, $post_query);
+	if (!$create_comment_query) {
 		die("Error in calling query" . mysqli_error($con));
 	}
+
+	$uquery = "UPDATE posts SET post_comment_count=post_comment_count + 1 WHERE post_id= $post";
+	$run_query = mysqli_query($con, $uquery);
 
 }
 
 ?>
+
+
                 <div class="well">
-                     <h4>Leave a Comment:</h4>
-                    <form role="form" method="POST" action="">
-                        <div class="form-group">
-                            <label for="comment_author">Author</label>
-                            <input type="text" class="form-control" name="comment_author">
-                        </div>
-                        <div class="form-group">
-                            <label for="comment_email">Email</label>
-                            <input type="email" class="form-control" name="comment_email" >
-                        </div>
-                        <div class="form-group">
-                        <label for="comment_email">Your Comment</label>
-                            <textarea type="text" class="form-control" rows="3" name="comment_content"></textarea>
-                        </div>
-                        <button class="btn btn-primary" type="submit"  name="create_comment">Submit</button>
-                    </form>
-</div>
+                    <h4>Leave a Comment:</h4>
+                        <form role="form" method="POST" action="">
+                            <div class="form-group">
+                                <label for="comment_author">Author</label>
+                                <input type="text" class="form-control" name="comment_author">
+                            </div>
+                            <div class="form-group">
+                                <label for="comment_email">Email</label>
+                                <input type="email" class="form-control" name="comment_email" >
+                            </div>
+                            <div class="form-group">
+                            <label for="comment_email">Your Comment</label>
+                                <textarea type="text" class="form-control" rows="3" name="comment_content"></textarea>
+                            </div>
+                            <button class="btn btn-primary" type="submit"  name="create_comment">Submit</button>
+                        </form>
+                </div>
 
                 <hr>
                 <!-- Posted Comments -->
 
                 <!-- Comment-->
                 <?php
-$comment_query = "SELECT * FROM comments WHERE comment_post_id= {$post} AND comment_status='approved'";
+$comment_query = "SELECT * FROM comments WHERE comment_post_id= {$post} AND comment_status='approved' ORDER BY comment_id DESC";
 $run_comment_query = mysqli_query($con, $comment_query);
 while ($row = mysqli_fetch_array($run_comment_query)) {
 	$comment_post_id = $row['comment_post_id'];
 	$comment_date = $row['comment_date'];
 	$comment_content = $row['comment_content'];
+	$comment_author = $row['comment_author'];
 
 	echo " <div class='media'>";
 	echo "<a class='pull-left' href='#'>";
 	echo "<img class='media-object' src='img/comment.jpg' alt=''>";
 	echo "</a>";
 	echo "<div class='media-body'>";
-	echo "<h4 class='media-heading'>{$comment_post_id}
+	echo "<h4 class='media-heading'>{$comment_author}
                             <small>{$comment_date}</small>
                         </h4>";
 	echo "{$comment_content}";
@@ -136,7 +142,7 @@ while ($row = mysqli_fetch_array($run_comment_query)) {
 
 
 
-            </div>
+    </div>
 
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">

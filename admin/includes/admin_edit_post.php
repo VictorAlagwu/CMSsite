@@ -61,6 +61,7 @@ if (isset($_POST['create_post'])) {
 	$update_query .= "post_image='{$post_image}', post_tags='{$post_tags}',";
 	$update_query .= "post_content='$post_content' WHERE post_id={$id}";
 	$run_update_query = mysqli_query($con, $update_query);
+	echo "<h3 style='color:green;'>Post Updated<small><a href='../post.php?post=$post_id'>View Port</a></small> OR <small><a href='posts.php'>Edit Error</a></small></h3>";
 
 }
 
@@ -73,7 +74,7 @@ if (isset($_POST['create_post'])) {
 		<input type="text" name="post_title" class="form-control" value="<?php echo $post_title; ?>">
 	</div>
 
-	<div class="form-group">
+	<div class="input-group">
 		<select class="form-control" name="post_category" id="">
 		<label for="cat_title">Category</label>
 					<?php
@@ -94,9 +95,18 @@ while ($row = mysqli_fetch_array($run_query)) {
 		<input type="text" name="post_author" class="form-control" value="<?php echo $post_author; ?>">
 	</div>
 
-	<div class="form-group">
+	<div class="input-group">
 		<label for="post_status">Post Status</label>
-		<input type="text" name="post_status" class="form-control" value="<?php echo $post_status; ?>">
+			<select name="post_status" class="form-control">
+<option value="<?php echo $post_status; ?>"><?php echo $post_status; ?></option>>
+			<?php
+if ($post_status == 'publish') {
+	echo "<option value='draft'>Draft</option>";
+} else {
+	echo "<option value='publish'>Publish</option>";
+}
+?>
+		</select>
 	</div>
 
 	<div class="form-group">

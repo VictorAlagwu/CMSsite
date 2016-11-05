@@ -4,9 +4,62 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="table-responsive">
+
+        <?php
+
+if (isset($_POST['checkBoxArray'])) {
+	$checkBoxArray = $_POST['checkBoxArray'];
+	foreach ($_POST['checkBoxArray'] as $checkboxvalue) {
+
+		$bulk_options = $_POST['bulk_options'];
+		if ($_SESSION['role'] !== 'Admin') {
+			header('Location: ./user_error.php');
+		} else {
+			switch ($bulk_options) {
+
+			case 'publish':
+				$p_query = "UPDATE posts SET post_status='{$bulk_options}' WHERE post_id={$checkboxvalue}";
+				$run_p_query = mysqli_query($con, $p_query);
+				break;
+			case 'draft':
+				$d_query = "UPDATE posts SET post_status='{$bulk_options}' WHERE post_id={$checkboxvalue}";
+				$run_d_query = mysqli_query($con, $d_query);
+				break;
+			case 'delete':
+				$del_query = "DELETE FROM posts WHERE post_id={$checkboxvalue}";
+				$run_del_query = mysqli_query($con, $del_query);
+
+				break;
+			default:
+				echo "Error";
+				break;
+			}
+		}
+	}
+
+}
+?>
+        <form action="" method="post">
             <table class="table table-bordered table-striped table-hover">
+            <div class="col-xs-4">
+            	<div id="manyOptions" class="form-group">
+            	<select class="form-control" name="bulk_options">
+            		<option value="">Select Option</option>
+            		<option value="publish">Publish</option>
+            		<option value="draft">Draft</option>
+            		<option value="delete">Delete</option>
+            	</select>
+            	</div>
+            </div>
+            <div class="col-xs-4">
+            <div class="form-group">
+            <input type="submit" name="submit" class="btn btn-success" value="Apply">
+            <a href="?source=add_post" class="btn btn-primary">Add New</a>
+            </div>
+            </div>
                 <thead>
                     <tr>
+                        <th><input type="checkbox" name="checkBoxArra"  class='checkBoxes'></th>
                         <th>ID</th>
                         <th>Author</th>
                         <th>Title</th>
@@ -16,8 +69,11 @@
                         <th>Tags</th>
                         <th>Comment</th>
                         <th>Date</th>
+                        <th>View Post</th>
+
                         <th>Delete</th>
                         <th>Edit</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +103,10 @@ while ($row = mysqli_fetch_array($run_query)) {
 	}
 
 	echo "<tr>";
-	echo "<td>{$post_id}</td>";
+	?>
+	<td><input type='checkbox' name='checkBoxArray[]' class='form-control checkbox' value='<?php echo $post_id; ?>'></td>
+	<?php
+echo "<td>{$post_id}</td>";
 	echo "<td>{$post_author}</td>";
 	echo "<td>{$post_title}</td>";
 	echo "<td>{$cat_title}</td>";
@@ -56,8 +115,10 @@ while ($row = mysqli_fetch_array($run_query)) {
 	echo "<td>{$post_tags}</td>";
 	echo "<td>{$post_comment_count}</td>";
 	echo "<td>{$post_date}</td>";
+	echo "<td><a href='../post.php?post={$post_id}' style='color:green'>Link Post</a></td>";
 	echo "<td><a href='?del={$post_id}'><i class='fa fa-times' style='color: red;''></i></a></td>";
 	echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+
 	echo "</tr>";
 
 }
@@ -67,14 +128,25 @@ while ($row = mysqli_fetch_array($run_query)) {
 
                 </tbody>
             </table>
-            <?php
-if (isset($_GET['del'])) {
-	$post_del = $_GET['del'];
-	$del_query = "DELETE FROM posts WHERE post_id={$post_del}";
-	$run_del_query = mysqli_query($con, $del_query);
-	header('Location:posts.php');
-}
+</form>
 
+
+
+
+
+            <?php
+if (isset($_SESSION['role'])) {
+	if (isset($_GET['del'])) {
+		$post_del = $_GET['del'];
+		if ($_SESSION['role'] !== 'Admin') {
+			header('Location: ./user_error.php');
+		} else {
+			$del_query = "DELETE FROM posts WHERE post_id={$post_del}";
+			$run_del_query = mysqli_query($con, $del_query);
+			header('Location:posts.php');
+		}
+	}
+}
 ?>
         </div>
     </div>

@@ -10,9 +10,8 @@
         <div class="row">
 	        <!-- Page Content -->
 	        <div class="col-md-8">
-            <h1 class="page-header">Heading<small>Secondary Text</small></h1>
-            <?php
-$query = "SELECT * FROM posts";
+                        <?php
+$query = "SELECT * FROM posts WHERE post_status='publish'";
 $run_query = mysqli_query($con, $query);
 while ($row = mysqli_fetch_assoc($run_query)) {
 	$post_title = $row['post_title'];
@@ -25,21 +24,24 @@ while ($row = mysqli_fetch_assoc($run_query)) {
 	$post_tags = $row['post_tags'];
 	$post_comment_count = $row['post_comment_count'];
 	$post_status = $row['post_status'];
+	if ($post_status !== 'publish') {
+		echo "NO POST PLS";
+	} else {
 
-	?>
+		?>
 	        	<!-- Post Area-->
 
 	        	<p><h2><a href="post.php?post=<?php echo $post_id; ?>"><?php echo $post_title; ?></a></h2></p>
 	        	<p><h3>by <a href="#"><?php echo $post_author; ?></a></h3></p>
 	        	<p><span class="glyphicon glyphicon-time"></span>Posted on <?php echo $post_date; ?></p>
-	        	<hr>
-	        	<img class="img-responsive img-rounded" src="img/<?php echo $post_image; ?>" alt="900 * 300">
+	        	<hr><a href="post.php?post=<?php echo $post_id; ?>">
+	        	<img class="img-responsive img-rounded" src="img/<?php echo $post_image; ?>" alt="900 * 300"></a>
 	        	<hr>
 	        	<p><?php echo substr($post_content, 0, 300) . '.........'; ?></p>
 	        	<a href="post.php?post=<?php echo $post_id; ?>"><button type="button" class="btn btn-primary">Read More<span class="glyphicon glyphicon-chevron-right"></span></button></a>
 	        	<hr>
 	        	<!-- Post Area -->
-	        	<?php }?>
+	        	<?php }}?>
 
 	        	<hr>
 	        	<ul class="pager">

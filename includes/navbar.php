@@ -1,7 +1,7 @@
 <!-- @author 'Victor Alagwu';
 //   @project 'Simple Content Management System';
 //   @date    '0ctober 2016'; -->
-
+<?php session_start();?>
      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"">
 			<div class="container">
 
@@ -27,7 +27,18 @@ while ($row = mysqli_fetch_assoc($run_query)) {
 	echo "<li><a href=''>{$cat_title}</a></li>";
 }
 ?>
-						 <li><a href="admin">Admin</a></li><!--
+						 <li><a href="admin">Admin</a></li>
+						 <li><a href="register.php">Register</a></li>
+						 <?php
+if (isset($_SESSION['role'])) {
+	if (isset($_GET['post'])) {
+		$page_id = $_GET['post'];
+		echo "<li><a href='admin/posts.php?source=edit_post&p_id={$page_id}'>Edit Post</a></li>";
+	}
+}
+
+?>
+<!--
 						<li><a href="#">Category</a></li>
 						<li><a href="#">Contact Us</a></li> -->
 					</ul>

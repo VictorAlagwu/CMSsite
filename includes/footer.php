@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <p style="text-align:center; font-family: 'Monotype Corsiva'; font-size:17px;">Built with <i class="material-icons" style="color: red;">favorite</i> by <b >Victor Alagwu</b></p>
+                    <p style="text-align:center; font-family: 'Monotype Corsiva'; font-size:17px;"><i  class="fa fa-fw fa-code"></i> with <i class="material-icons" style="color: red;">favorite</i> from <b >Victor Alagwu</b></p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

@@ -85,6 +85,7 @@ body {
     white-space: normal;
 }
 
+
 ul.message-dropdown {
     padding: 0;
     max-height: 250px;
@@ -224,4 +225,7 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+#manyOptions{
+    padding: 0px;
 }

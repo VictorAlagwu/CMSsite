@@ -14,11 +14,10 @@
                         <th>Status</th>
                         <th>In Responce to</th>
                         <th>Date</th>
-                        <th>approved</th>
+                        <th>Approved</th>
                         <th>Up-approved</th>
-                        <!-- <th>Edit</th> -->
+                        <th>Edit</th>
                         <th>Delete</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -48,13 +47,15 @@ while ($row = mysqli_fetch_array($run_query)) {
 	while ($row = mysqli_fetch_array($run_post_query)) {
 		$post_id = $row['post_id'];
 		$post_title = $row['post_title'];
-		echo "<td><a href='../post.php?post=$post_id'>{$post_title}</a></td>";
-	}
 
+		// 	echo "<td><a href='../post.php?post={$post_id}'>{$post_title}</a></td>";
+
+		echo "<td><a href='../post.php?post={$post_id}'>{$post_title}</a></td>";
+	}
 	echo "<td>{$comment_date}</td>";
 	echo "<td><a href='comment.php?approved={$comment_id}'><span class='glyphicon glyphicon-ok' style='color: green;'></span></a></td>";
 	echo "<td><a href='comment.php?unapproved={$comment_id}'><span class='glyphicon glyphicon-off' style='color: red;' ></span></a></td>";
-	// echo "<td><a href='comment.php?source=edit_comment&c_id={$comment_id}'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
+	echo "<td><a href='comment.php?source=edit_comment&c_id={$comment_id}'><span class='glyphicon glyphicon-edit' style='color: #265a88;'></span></a></td>";
 	echo "<td><a href='?del={$comment_id}'><i class='fa fa-times' style='color: red;'></i></a></td>";
 
 	echo "</tr>";

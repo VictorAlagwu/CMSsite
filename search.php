@@ -15,7 +15,7 @@
 if (isset($_POST['submit'])) {
 	$search = $_POST["search"];
 
-	$query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' ";
+	$query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' AND post_status='publish'";
 	$search_query = mysqli_query($con, $query);
 	if (!$search_query) {
 		die("Query Fail" . mysqli_error($con));
