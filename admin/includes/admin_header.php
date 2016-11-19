@@ -8,6 +8,8 @@
 <?php
 if (isset($_SESSION['role'])) {
 
+} else {
+	header('Location:../index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -21,7 +23,7 @@ if (isset($_SESSION['role'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard - Victor</title>
+    <title>Dashboard - <?php echo $_SESSION['firstname']; ?></title>
     <link rel="icon" type="image/png" href="../img/vimeo.png">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

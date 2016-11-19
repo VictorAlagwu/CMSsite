@@ -37,6 +37,14 @@ if (isset($_POST['register'])) {
 	$user_lastname = $_POST['user_lastname'];
 	$user_email = $_POST['user_email'];
 	$user_password = $_POST['user_password'];
+
+	mysqli_real_escape_string($con, $user_name);
+	mysqli_real_escape_string($con, $user_lastname);
+	mysqli_real_escape_string($con, $user_firstname);
+	mysqli_real_escape_string($con, $user_password);
+
+	mysqli_real_escape_string($con, $user_email);
+	$u_password = password_hash($user_password, PASSWORD_DEFAULT);
 	$user_image = "Image";
 	$user_role = "User";
 	$randsalt = "dgas";
@@ -45,7 +53,7 @@ if (isset($_POST['register'])) {
 	$user_query .= "user_firstname,user_lastname,user_password,";
 	$user_query .= "user_email,user_image,user_role,";
 	$user_query .= "randsalt)";
-	$user_query .= " VALUES ('{$user_name}','{$user_firstname}','{$user_lastname}','{$user_password}','{$user_email}','{$user_image}','{$user_role}','{$randsalt}')";
+	$user_query .= " VALUES ('{$user_name}','{$user_firstname}','{$user_lastname}','{$u_password}','{$user_email}','{$user_image}','{$user_role}','{$randsalt}')";
 	$run_query_user = mysqli_query($con, $user_query);
 	if (!$run_query_user) {
 		die("Error" . mysqli_error($run_query_user));

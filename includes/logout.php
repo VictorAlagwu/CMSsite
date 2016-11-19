@@ -1,11 +1,13 @@
-<?php session_start();?>
 <?php
-$_SESSION['username'] = null;
-$_SESSION['firstname'] = null;
-$_SESSION['lastname'] = null;
-$_SESSION['email'] = null;
-$_SESSION['role'] = null;
-$_SESSION['image'] = null;
+// @author 'Victor Alagwu';
+// @project 'Simple Content Management System';
+// @date    '0ctober 2016';
+session_start();?>
+
+<?php
+
+session_destroy();
+
 header('Location: ../index.php');
 
 ?>

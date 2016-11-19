@@ -1,7 +1,8 @@
-<?php include 'includes/db.php'
-// @author 'Victor Alagwu';
+<?php // @author 'Victor Alagwu';
 // @project 'Simple Content Management System';
 // @date    '0ctober 2016';
+include 'includes/db.php'
+
 ;?>
 <!DOCTYPE html>
 <html>

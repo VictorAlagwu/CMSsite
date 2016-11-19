@@ -27,6 +27,7 @@ while ($row = mysqli_fetch_array($run_query)) {
 	$user_lastname = $row['user_lastname'];
 	$user_email = $row['user_email'];
 	$user_password = $row['user_password'];
+
 	$user_image = $row['user_image'];
 	$user_role = $row['user_role'];
 }
@@ -38,7 +39,7 @@ if (isset($_POST['update_user'])) {
 	$user_lastname = $_POST['user_lastname'];
 	$user_email = $_POST['user_email'];
 	$user_password = $_POST['user_password'];
-
+	$password = password_hash($user_password, PASSWORD_DEFAULT);
 	$user_image = $_FILES['user_image']['name'];
 	$user_image_temp = $_FILES['user_image']['tmp_name'];
 
@@ -61,7 +62,7 @@ if (empty($user_image)) {
 //<<<<<<<<<<<<<<<<<<<<----START QUERY---<<<<<<<<<<<<<<<<<<<<<<<
 $update_query = "UPDATE users SET user_name='{$user_name}',";
 $update_query .= "user_firstname='{$user_firstname}',";
-$update_query .= "user_lastname='{$user_lastname}',user_email='{$user_email}',";
+$update_query .= "user_lastname='{$user_lastname}',user_password='{$password}',user_email='{$user_email}',";
 $update_query .= "user_image='{$user_image}', user_role='{$user_role}'";
 $update_query .= " WHERE user_id={$user_id}";
 $run_update_query = mysqli_query($con, $update_query);
