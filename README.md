@@ -16,17 +16,26 @@ This project was done when learning **PHP** using **Edwin Daiz Udemy PHP for Beg
 	VictorCMS, is a content management system built by me when learning PHP via Edwin udemy video tutorial. 
 Features of the Site
 --------
-- **Admin Page:** Which have the following
+
+- **Admin Page:**
+
 - **Dashboard Page:** for managing various stuffs
+
 ![Admin Screenshot](/img/cms_admin.JPG "Admin Page")
+
 - **Post Page:** for managing the various posts to be made.
+
 ![Post Screenshot](/img/cms_admin_post.JPG "Post Images")
+
 - **Categories Page:** for creating and arranging categories
+
 ![Registration Screenshot](/img/cms_admin_categories.JPG "Registration Images")
+
 - **Users Page:** it also a page that contains list of all registrate users(can only be view by admin)
 
 ![Registration Screenshot](/img/cms_admin_users1.JPG "Registration Images")
 ![Registration Screenshot](/img/cms_admin_users2.JPG "Registration Images")
+
 Profile Page: that allows user to change their details
 	
 - **Registration Page:** Allows Users to register
