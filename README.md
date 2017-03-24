@@ -5,7 +5,9 @@
 <b>Project: </b> Simple CMS Site<br/>
 # Victor CMS -A Simple Content Management System - 
 
-This project was done when learning **PHP** using **Edwin Daiz Udemy PHP for Beginners - Become a PHP Master Tutorial**
+![Admin Screenshot](/img/cms_front.JPG "Admin Page")
+
+This project was done when learning **PHP** using **Edwin Daiz Udemy PHP for Beginners - Become a PHP Master Tutorial**. 
 
 # About Project
 	VictorCMS, is a content management system built by me when learning PHP via Edwin udemy video tutorial. 
@@ -13,7 +15,7 @@ This project was done when learning **PHP** using **Edwin Daiz Udemy PHP for Beg
 Features of the Site
 --------
 
-- **Admin Page:**Only ADMIN can perform DELETE,EDIT,APPROVE,DISAPPROVE etc
+- **Admin Page:** Only ADMIN can perform DELETE,EDIT,APPROVE,DISAPPROVE etc
 
 - **CRUD (Create, Read, Update, and Delete):** operation added to category page in admin
 
