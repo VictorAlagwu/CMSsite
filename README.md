@@ -18,9 +18,9 @@ Features of the Site
 --------
 - **Admin Page:** Which have the following<br/>
 Dashboard Page: for managing various stuffs<br/>
-![Registration Screenshot](/img/cms_admin.JPG "Registration Images")
+![Admin Screenshot](/img/cms_admin.JPG "Admin Page")
 Post Page: for managing the various posts to be made.
-![Registration Screenshot](/img/cms_admin_post.JPG "Registration Images")
+![Post Screenshot](/img/cms_admin_post.JPG "Post Images")
 Categories Page: for creating and arranging categories
 ![Registration Screenshot](/img/cms_admin_categories.JPG "Registration Images")
 Users Page: it also a page that contains list of all registrate users(can only be view by admin)
