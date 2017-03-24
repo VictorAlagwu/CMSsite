@@ -1,23 +1,21 @@
 # CMSsite
-<b>Author: </b>Victor Alagwu<hr>
-<b>Email: </b>victoralagwu@gmail.com<hr>
-<b>Contact: </b>(+234)8170449567<hr>
-<b>Project: </b> Simple CMS Site<hr>
-<b style='color:green;'>Added Features </b>
-<ul>
-<li>CRUD (Create, Read, Update, and Delete) operation added to category page in admin </li>
-<li>CRUD (Create, Read, Update, and Delete) operation added to post page in admin </li>
-<li>Comment added</li>
-<li>User Login and Registration System-----Still need improvement</li>
-<li>Only ADMIN can perform DELETE,EDIT,APPROVE,DISAPPROVE etc </li>
+<b>Author: </b>Victor Alagwu<br/>
+<b>Email: </b>victoralagwu@gmail.com<br/>
+<b>Contact: </b>(+234)8170449567<br/>
+<b>Project: </b> Simple CMS Site<br/>
 # Victor CMS -A Simple Content Management System - 
+
 This project was done when learning **PHP** using **Edwin Daiz Udemy PHP for Beginners - Become a PHP Master Tutorial**
+
 # About Project
 	VictorCMS, is a content management system built by me when learning PHP via Edwin udemy video tutorial. 
+	
 Features of the Site
 --------
 
-- **Admin Page:**
+- **Admin Page:**Only ADMIN can perform DELETE,EDIT,APPROVE,DISAPPROVE etc
+
+- **CRUD (Create, Read, Update, and Delete):** operation added to category page in admin
 
 - **Dashboard Page:** for managing various stuffs
 
@@ -52,13 +50,12 @@ Tools used
 - Mysql
 - PHP
 - Bootstrap
+
 Contributing
 -----------
-
-
 - Do the following change the code in the **dbconnect.php**
 	`$DB_host = "localhost"; $DB_user = "root"; $DB_pass = ""; $DB_name = "users_details";`
-- Import the database file named "alancer_db.sql"
+- Import the database file named "php_cms.sql"
 - After that you are done,register and login
 - "Just view the project"
 
