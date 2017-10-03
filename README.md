@@ -1,8 +1,14 @@
 # CMSsite
-<b>Author: </b>Victor Alagwu<br/>
-<b>Email: </b>victoralagwu@gmail.com<br/>
-<b>Contact: </b>(+234)8170449567<br/>
-<b>Project: </b> Simple CMS Site<br/>
+[![GitLicense](https://gitlicense.com/badge/VictorAlagwu/CMSsite)](https://gitlicense.com/license/VictorAlagwu/CMSsite)
+
+<b>Author: </b>Victor Alagwu
+
+<b>Email: </b>victoralagwu@gmail.com
+
+<b>Contact: </b>(+234)8170449567
+
+<b>Project: </b> Simple CMS Site
+
 # Victor CMS -A Simple Content Management System - 
 
 ![Admin Screenshot](/img/cms_front.JPG "Admin Page")
