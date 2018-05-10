@@ -5,7 +5,7 @@
 
 <b>Email: </b>victoralagwu@gmail.com
 
-<b>Contact: </b>(+234)8170449567
+<b>Contact: </b> +2348170449567
 
 <b>Project: </b> Simple CMS Site
 
