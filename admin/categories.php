@@ -72,7 +72,7 @@ while ($row = mysqli_fetch_array($run_query)) {
 	?><tr>
 
                                 <td><?php echo $cat_id; ?></td>
-                                <td><?php echo $cat_title; ?></td>
+                                <td><?php echo htmlspecialchars($cat_title); ?></td>
                                 <td><a href="categories.php?edit=<?php echo $cat_id; ?>"><span class="glyphicon glyphicon-edit" style="color: #265a88;"></span></a></td>
                                 <td><a href="categories.php?del=<?php echo $cat_id; ?>"><i class="fa fa-times" style="color: red;"></i></a></td>
                             </tr>
