@@ -6,7 +6,7 @@
 function insert_category() {
 	global $con;
 	if (isset($_POST['submit'])) {
-		$cat_title = $_POST['cat_title'];
+		$cat_title = htmlspecialchars($_POST['cat_title']);
 
 		if ($cat_title == "" || empty($cat_title)) {
 			echo "Please input category";
