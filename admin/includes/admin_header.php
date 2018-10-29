@@ -26,16 +26,16 @@ if (isset($_SESSION['role'])) {
     <title>Dashboard - <?php echo $_SESSION['firstname']; ?></title>
     <link rel="icon" type="image/png" href="../img/vimeo.png">
     <!-- Bootstrap Core CSS -->
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-	<link href="../bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<!--<link href="../bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
  <script src="js/tinymce/tinymce.min.js"></script>
     <script src="js/tinymce/script.js"></script>
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-   <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-	<link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--<link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
