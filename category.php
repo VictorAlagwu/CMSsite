@@ -15,6 +15,7 @@
 if (isset($_GET['cat_id'])) {
 	$category = $_GET['cat_id'];
 }
+mysqli_real_escape_string($con,$category);
 $query = "SELECT * FROM posts WHERE post_category_id=$category";
 $run_query = mysqli_query($con, $query);
 $count = mysqli_num_rows($run_query);
