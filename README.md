@@ -3,9 +3,6 @@
 
 <b>Author: </b>Victor Alagwu
 
-<b>Email: </b>victoralagwu@gmail.com
-
-<b>Contact: </b> +2348170449567
 
 <b>Project: </b> Simple CMS Site
 
